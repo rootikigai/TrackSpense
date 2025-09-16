@@ -1,7 +1,7 @@
-package com.trackspense.data.repo;
+package com.trackspense.data.repos;
 
-import com.trackspense.data.model.Category;
-import com.trackspense.data.model.Expense;
+import com.trackspense.data.models.Category;
+import com.trackspense.data.models.Expense;
 import org.springframework.data.mongodb.repository.MongoRepository;
 
 import java.util.List;

@@ -1,10 +1,10 @@
-package com.trackspense.service;
+package com.trackspense.services;
 
-import com.trackspense.data.model.User;
-import com.trackspense.data.repo.UserRepo;
-import com.trackspense.exception.InvalidEmailFormatException;
-import com.trackspense.exception.InvalidPasswordException;
-import com.trackspense.exception.UserNotFoundException;
+import com.trackspense.data.models.User;
+import com.trackspense.data.repos.UserRepo;
+import com.trackspense.exceptions.InvalidEmailFormatException;
+import com.trackspense.exceptions.InvalidPasswordException;
+import com.trackspense.exceptions.UserNotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
