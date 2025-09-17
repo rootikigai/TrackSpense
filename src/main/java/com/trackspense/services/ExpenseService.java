@@ -12,4 +12,15 @@ public class ExpenseService {
     public Expense addExpense(Expense expense){
         return expenseRepo.save(expense);
     }
+    public Expense updateExpense(String expenseId, Expense updatedExpense){
+        Expense existingExpense = expenseRepo.findById(expenseId).orElseThrow(() -> new RuntimeException("Dem no fit find am!"));
+
+        existingExpense.setAmount(updatedExpense.getAmount());
+        existingExpense.setCategory(updatedExpense.getCategory());
+        existingExpense.setDescription(updatedExpense.getDescription());
+        existingExpense.setDate(updatedExpense.getDate());
+        existingExpense.setUserId(updatedExpense.getUserId());
+
+        return expenseRepo.save(existingExpense);
+    }
 }
