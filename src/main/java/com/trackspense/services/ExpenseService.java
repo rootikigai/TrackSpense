@@ -23,4 +23,8 @@ public class ExpenseService {
 
         return expenseRepo.save(existingExpense);
     }
+
+    public void deleteExpense(String id) {
+        expenseRepo.deleteById(id);
+    }
 }
