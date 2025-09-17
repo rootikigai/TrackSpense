@@ -47,7 +47,7 @@ public class UserService {
         }
 
         User existingUser = userRepo.findByEmail(email).orElseThrow(() -> new UserNotFoundException("Dem no fit find am!"));
-        if (!existingUser.getPassword().equals(password)) {
+        if (!passwordEncoder.matches(password, existingUser.getPassword())) {
             throw new InvalidPasswordException("Your password no valid...check am!");
         }
         return existingUser;
