@@ -6,6 +6,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/api/expenses")
 @RequiredArgsConstructor
@@ -28,5 +30,11 @@ public class ExpenseController {
     public ResponseEntity<String> deleteExpense(@PathVariable String id){
         expenseService.deleteExpense(id);
         return ResponseEntity.ok("Expense successfully deleted");
+    }
+
+    @GetMapping("/all")
+    public ResponseEntity<List<Expense>> getAllExpenses() {
+        List<Expense> expenses = expenseService.getAllExpenses();
+        return ResponseEntity.ok(expenses);
     }
 }

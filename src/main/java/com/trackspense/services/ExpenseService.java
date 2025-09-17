@@ -5,6 +5,8 @@ import com.trackspense.data.repos.ExpenseRepo;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 @RequiredArgsConstructor
 public class ExpenseService {
@@ -26,5 +28,9 @@ public class ExpenseService {
 
     public void deleteExpense(String id) {
         expenseRepo.deleteById(id);
+    }
+
+    public List<Expense> getAllExpenses() {
+        return expenseRepo.findAll();
     }
 }
