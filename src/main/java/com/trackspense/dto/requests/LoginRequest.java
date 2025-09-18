@@ -1,14 +1,13 @@
-package com.trackspense.dto;
+package com.trackspense.dto.requests;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.AllArgsConstructor;
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class RegisterUserRequest {
-    private String userName;
+public class LoginRequest {
     private String email;
     private String password;
 }

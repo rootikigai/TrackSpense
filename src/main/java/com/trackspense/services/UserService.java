@@ -2,11 +2,14 @@ package com.trackspense.services;
 
 import com.trackspense.data.models.User;
 import com.trackspense.data.repos.UserRepo;
-import com.trackspense.dto.RegisterUserRequest;
+import com.trackspense.dto.requests.RegisterUserRequest;
+import com.trackspense.dto.responses.LoginResponse;
+import com.trackspense.dto.responses.UserResponse;
 import com.trackspense.exceptions.EmailAlreadyExistsException;
 import com.trackspense.exceptions.InvalidEmailFormatException;
 import com.trackspense.exceptions.InvalidPasswordException;
 import com.trackspense.exceptions.UserNotFoundException;
+import com.trackspense.mappers.UserMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -23,7 +26,7 @@ public class UserService {
 
     private static final Pattern EMAIL_PATTERN = Pattern.compile("^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+$");
 
-    public User registerUser(RegisterUserRequest request){
+    public UserResponse registerUser(RegisterUserRequest request){
         if(!EMAIL_PATTERN.matcher(request.getEmail()).matches()){
             throw new InvalidEmailFormatException("Your Email no valid...check am!");
         }
@@ -38,10 +41,11 @@ public class UserService {
         user.setEmail(request.getEmail());
         user.setPassword(passwordEncoder.encode(request.getPassword()));
 
-        return userRepo.save(user);
+        User savedUser = userRepo.save(user);
+        return UserMapper.toResponse(savedUser);
     }
 
-    public User login(String email, String password){
+    public LoginResponse login(String email, String password){
         if(!EMAIL_PATTERN.matcher(email).matches()){
             throw new InvalidEmailFormatException("Your Email no valid...check am!");
         }
@@ -50,13 +54,15 @@ public class UserService {
         if (!passwordEncoder.matches(password, existingUser.getPassword())) {
             throw new InvalidPasswordException("Your password no valid...check am!");
         }
-        return existingUser;
+        return new LoginResponse(UserMapper.toResponse(existingUser), "Login Successful");
     }
 
-    public User findUserByEmail(String email) {
+    public UserResponse findUserByEmail(String email) {
         if (!EMAIL_PATTERN.matcher(email).matches()) {
             throw new InvalidEmailFormatException("Your Email no valid...check am!");
         }
-        return userRepo.findByEmail(email).orElseThrow(() -> new UserNotFoundException("Dem no fit find am!"));
+
+        User existingUser = userRepo.findByEmail(email).orElseThrow(() -> new UserNotFoundException("Dem no fit find am!"));
+        return UserMapper.toResponse(existingUser);
     }
 }
