@@ -3,10 +3,12 @@ package com.trackspense.services;
 import com.trackspense.data.models.User;
 import com.trackspense.data.repos.UserRepo;
 import com.trackspense.dto.requests.RegisterUserRequest;
+import com.trackspense.dto.responses.LoginResponse;
 import com.trackspense.dto.responses.UserResponse;
 import com.trackspense.exceptions.EmailAlreadyExistsException;
 import com.trackspense.exceptions.InvalidEmailFormatException;
 import com.trackspense.exceptions.InvalidPasswordException;
+import com.trackspense.exceptions.UserNotFoundException;
 import com.trackspense.mappers.UserMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -22,10 +24,15 @@ public class UserServiceImpl implements UserService{
     private final UserRepo userRepo;
     private final BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 
-    private static final Pattern EMAIL_PATTERN = Pattern.compile("^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+$");
+    private static final Pattern EMAIL_PATTERN =
+            Pattern.compile("^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,6}$");
 
     @Override
     public UserResponse registerUser(RegisterUserRequest request){
+        if (request == null) {
+            throw new IllegalArgumentException("Request cannot be null");
+        }
+
         if (request.getUserName() == null || request.getUserName().trim().isEmpty()) {
             throw new IllegalArgumentException("Username cannot be empty");
         }
@@ -52,24 +59,24 @@ public class UserServiceImpl implements UserService{
         return UserMapper.toResponse(savedUser);
     }
 
-//    public LoginResponse login(String email, String password){
-//        if(!EMAIL_PATTERN.matcher(email).matches()){
-//            throw new InvalidEmailFormatException("Your Email no valid...check am!");
-//        }
-//
-//        User existingUser = userRepo.findByEmail(email).orElseThrow(() -> new UserNotFoundException("Dem no fit find am!"));
-//        if (!passwordEncoder.matches(password, existingUser.getPassword())) {
-//            throw new InvalidPasswordException("Your password no valid...check am!");
-//        }
-//        return new LoginResponse(UserMapper.toResponse(existingUser), "Login Successful");
-//    }
-//
-//    public UserResponse findUserByEmail(String email) {
-//        if (!EMAIL_PATTERN.matcher(email).matches()) {
-//            throw new InvalidEmailFormatException("Your Email no valid...check am!");
-//        }
-//
-//        User existingUser = userRepo.findByEmail(email).orElseThrow(() -> new UserNotFoundException("Dem no fit find am!"));
-//        return UserMapper.toResponse(existingUser);
-//    }
+    @Override
+    public LoginResponse login(String email, String password){
+        if (email == null || email.trim().isEmpty()) {
+            throw new IllegalArgumentException("Email cannot be null or empty");
+        }
+
+        if(!EMAIL_PATTERN.matcher(email).matches()){
+            throw new InvalidEmailFormatException("Invalid email format!");
+        }
+
+        if (password == null || password.trim().isEmpty()) {
+            throw new IllegalArgumentException("Password cannot be null or empty");
+        }
+
+        User existingUser = userRepo.findByEmail(email).orElseThrow(() -> new UserNotFoundException("Dem no fit find am!"));
+        if (!passwordEncoder.matches(password, existingUser.getPassword())) {
+            throw new InvalidPasswordException("Your password is incorrect!");
+        }
+        return new LoginResponse(UserMapper.toResponse(existingUser), "Login Successful");
+    }
 }
