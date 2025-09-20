@@ -16,7 +16,7 @@ import java.util.List;
 
 @Service
 @RequiredArgsConstructor
-public class ExpenseService {
+public class ExpenseServiceImpl {
     private final ExpenseRepo expenseRepo;
     public ExpenseResponse addExpense(CreateExpenseRequest request, String loggedInUserId){
         Expense toSave = ExpenseMapper.toEntity(request, loggedInUserId);
@@ -27,12 +27,6 @@ public class ExpenseService {
         Expense existingExpense = expenseRepo.findById(expenseId).orElseThrow(() -> new ExpenseNotFoundException("Dem no fit find am: " + expenseId));
         ExpenseMapper.updateEntityFromDto(request, existingExpense);
         Expense saved = expenseRepo.save(existingExpense);
-
-//        existingExpense.setAmount(updatedExpense.getAmount());
-//        existingExpense.setCategory(updatedExpense.getCategory());
-//        existingExpense.setDescription(updatedExpense.getDescription());
-//        existingExpense.setDate(updatedExpense.getDate());
-//        existingExpense.setUserId(updatedExpense.getUserId());
 
         return ExpenseMapper.toResponse(saved);
     }
