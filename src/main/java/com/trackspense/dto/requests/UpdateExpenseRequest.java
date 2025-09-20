@@ -9,7 +9,7 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @AllArgsConstructor
 public class UpdateExpenseRequest {
-    private double amount;
+    private Double amount;
     private String category;
     private String description;
     private LocalDateTime date;
