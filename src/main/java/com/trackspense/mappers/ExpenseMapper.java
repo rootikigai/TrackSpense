@@ -7,15 +7,13 @@ import com.trackspense.dto.requests.UpdateExpenseRequest;
 import com.trackspense.dto.responses.ExpenseResponse;
 
 public class ExpenseMapper {
-    public static Expense toEntity(CreateExpenseRequest request, String userId){
+    public static Expense toEntity(CreateExpenseRequest request, String loggedInUserId){
         Expense expense = new Expense();
-        expense.setDescription(request.getDescription());
         expense.setAmount(request.getAmount());
-        if (request.getCategory() != null) {
-            expense.setCategory(Category.valueOf(request.getCategory().toUpperCase()));
-        }
+        expense.setDescription(request.getDescription());
+        expense.setCategory(Category.valueOf(request.getCategory().toUpperCase()));
         expense.setDate(request.getDate() != null ? request.getDate() : java.time.LocalDateTime.now());
-        expense.setUserId(userId);
+        expense.setUserId(loggedInUserId);
         return expense;
     }
 
