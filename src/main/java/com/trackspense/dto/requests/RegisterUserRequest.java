@@ -2,11 +2,13 @@ package com.trackspense.dto.requests;
 
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
+import lombok.AllArgsConstructor;
 import lombok.Data;
-import org.springframework.data.mongodb.core.mapping.Document;
+import lombok.NoArgsConstructor;
 
 @Data
-@Document
+@NoArgsConstructor
+@AllArgsConstructor
 public class RegisterUserRequest {
     @NotBlank(message = "Username is a must!")
     private String userName;
