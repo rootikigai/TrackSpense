@@ -1,5 +1,6 @@
 package com.trackspense.services;
 
+import com.trackspense.data.models.Category;
 import com.trackspense.data.models.Expense;
 import com.trackspense.data.repos.ExpenseRepo;
 import com.trackspense.dto.requests.CreateExpenseRequest;
@@ -10,6 +11,7 @@ import com.trackspense.mappers.ExpenseMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Service
@@ -20,59 +22,93 @@ public class ExpenseServiceImpl implements ExpenseService {
 
     @Override
     public ExpenseResponse addExpense(CreateExpenseRequest request, String userId) {
-        // --- VALIDATIONS ---
-        if (userId == null || userId.trim().isEmpty()) {
-            throw new IllegalArgumentException("User ID cannot be null or empty");
-        }
-        if (request.getAmount() <= 0) {
-            throw new IllegalArgumentException("Amount must be greater than 0");
-        }
-        if (request.getDescription() == null || request.getDescription().trim().isEmpty()) {
-            throw new IllegalArgumentException("Description cannot be null or empty");
-        }
-        if (request.getCategory() == null || request.getCategory().trim().isEmpty()) {
-            throw new IllegalArgumentException("Category cannot be null or empty");
+        validateUserId(userId);
+
+        Expense expense = ExpenseMapper.toEntity(request, userId);
+        if (expense.getDate() == null) {
+            expense.setDate(LocalDateTime.now());
         }
 
-        // --- BUSINESS LOGIC ---
-        Expense expense = ExpenseMapper.toEntity(request, userId);
         Expense savedExpense = expenseRepo.save(expense);
         return ExpenseMapper.toResponse(savedExpense);
     }
 
     @Override
-    public List<ExpenseResponse> getAllExpenses() {
-        return expenseRepo.findAll().stream().map(ExpenseMapper::toResponse).toList();
+    public List<ExpenseResponse> getAllExpenses(String userId) {
+        validateUserId(userId);
+
+        return expenseRepo.findByUserId(userId)
+                .stream()
+                .map(ExpenseMapper::toResponse)
+                .toList();
     }
 
     @Override
     public List<ExpenseResponse> getExpensesByUser(String userId) {
-        return expenseRepo.findByUserId(userId).stream().map(ExpenseMapper::toResponse).toList();
+        validateUserId(userId);
+
+        return expenseRepo.findByUserId(userId)
+                .stream()
+                .map(ExpenseMapper::toResponse)
+                .toList();
     }
 
     @Override
-    public ExpenseResponse updateExpense(String expenseId, UpdateExpenseRequest request) {
+    public ExpenseResponse updateExpense(String userId, String expenseId, UpdateExpenseRequest request) {
+        validateUserId(userId);
+
         Expense existing = expenseRepo.findById(expenseId)
                 .orElseThrow(() -> new ExpenseNotFoundException("Expense not found: " + expenseId));
 
-        // Validate fields (reuse validations from addExpense if needed)
-        if (request.getAmount() <= 0) throw new IllegalArgumentException("Amount must be > 0");
-        if (request.getCategory() == null || request.getCategory().trim().isEmpty())
-            throw new IllegalArgumentException("Category is required");
-        if (request.getDescription() == null || request.getDescription().trim().isEmpty())
-            throw new IllegalArgumentException("Description cannot be blank");
+        if (!existing.getUserId().equals(userId)) {
+            throw new RuntimeException("Unauthorized to update this expense");
+        }
 
-        // Update entity via mapper
         ExpenseMapper.updateEntityFromDto(request, existing);
-
         Expense saved = expenseRepo.save(existing);
+
         return ExpenseMapper.toResponse(saved);
     }
 
     @Override
-    public void deleteExpense(String expenseId) {
+    public void deleteExpense(String userId, String expenseId) {
+        validateUserId(userId);
+
         Expense existing = expenseRepo.findById(expenseId)
                 .orElseThrow(() -> new ExpenseNotFoundException("Expense not found: " + expenseId));
+
+        if (!existing.getUserId().equals(userId)) {
+            throw new RuntimeException("Unauthorized to delete this expense");
+        }
+
         expenseRepo.delete(existing);
+    }
+
+    @Override
+    public List<ExpenseResponse> getExpensesByUserAndCategory(String userId, Category category) {
+        validateUserId(userId);
+
+        return expenseRepo.findByUserIdAndCategory(userId, category)
+                .stream()
+                .map(ExpenseMapper::toResponse)
+                .toList();
+    }
+
+    @Override
+    public List<ExpenseResponse> getExpensesByUserAndDateRange(String userId, LocalDateTime start, LocalDateTime end) {
+        validateUserId(userId);
+
+        return expenseRepo.findByUserIdAndDateBetween(userId, start, end)
+                .stream()
+                .map(ExpenseMapper::toResponse)
+                .toList();
+    }
+
+    // ---------------- PRIVATE HELPERS ----------------
+
+    private void validateUserId(String userId) {
+        if (userId == null || userId.trim().isEmpty()) {
+            throw new IllegalArgumentException("User ID cannot be null or empty");
+        }
     }
 }

@@ -10,6 +10,7 @@ import com.trackspense.exceptions.InvalidEmailFormatException;
 import com.trackspense.exceptions.InvalidPasswordException;
 import com.trackspense.exceptions.UserNotFoundException;
 import com.trackspense.mappers.UserMapper;
+import com.trackspense.security.JwtUtil;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -26,6 +27,7 @@ public class UserServiceImpl implements UserService{
 
     private static final Pattern EMAIL_PATTERN =
             Pattern.compile("^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,6}$");
+    private final JwtUtil jwtUtil;
 
     @Override
     public UserResponse registerUser(RegisterUserRequest request){
@@ -77,6 +79,9 @@ public class UserServiceImpl implements UserService{
         if (!passwordEncoder.matches(password, existingUser.getPassword())) {
             throw new InvalidPasswordException("Your password is incorrect!");
         }
-        return new LoginResponse(UserMapper.toResponse(existingUser), "Login Successful");
+
+        String token = jwtUtil.generateToken(existingUser.getId());
+
+        return new LoginResponse(UserMapper.toResponse(existingUser), "Login Successful", token);
     }
 }
