@@ -1,5 +1,6 @@
 package com.trackspense.dto.requests;
 
+import com.trackspense.data.models.Category;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
@@ -15,7 +16,7 @@ public class UpdateExpenseRequest {
     @Min(value = 1, message = "Amount must be greater than 0")
     private Double amount;
     @NotNull(message = "Category is required")
-    private String category;
+    private Category category;
     @NotBlank(message = "Description can't be blank")
     private String description;
     private LocalDateTime date;
