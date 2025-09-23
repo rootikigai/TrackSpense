@@ -1,5 +1,9 @@
 package com.trackspense.security;
 
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import java.util.Collections;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
@@ -14,7 +18,7 @@ import java.io.IOException;
 
 @Component
 public class JwtAuthenticationFilter extends OncePerRequestFilter {
-
+    private static final Logger logger = LoggerFactory.getLogger(JwtAuthenticationFilter.class);
     private final JwtUtil jwtUtil;
 
     public JwtAuthenticationFilter(JwtUtil jwtUtil) {
@@ -32,19 +36,24 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
             return;
         }
 
-        String token = header.substring(7);
+        String token = header.substring(7).trim();
 
-        if (jwtUtil.validateToken(token)) {
-            String userId = jwtUtil.extractUserId(token);
+        try {
+            if (jwtUtil.validateToken(token)) {
+                String userId = jwtUtil.extractUserId(token);
 
-            UsernamePasswordAuthenticationToken authentication =
-                    new UsernamePasswordAuthenticationToken(userId, null, null);
+                UsernamePasswordAuthenticationToken authentication =
+                        new UsernamePasswordAuthenticationToken(userId, null, Collections.emptyList());
 
-            authentication.setDetails(
-                    new WebAuthenticationDetailsSource().buildDetails(request)
-            );
+                authentication.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
+                SecurityContextHolder.getContext().setAuthentication(authentication);
 
-            SecurityContextHolder.getContext().setAuthentication(authentication);
+                logger.debug("Authenticated userId={} from JWT", userId);
+            } else {
+                logger.debug("JWT validation failed for token starting with: {}", token.substring(0, Math.min(10, token.length())));
+            }
+        } catch (Exception ex) {
+            logger.warn("Exception while validating JWT: {}", ex.getMessage());
         }
 
         filterChain.doFilter(request, response);
