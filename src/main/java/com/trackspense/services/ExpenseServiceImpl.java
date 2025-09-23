@@ -104,8 +104,6 @@ public class ExpenseServiceImpl implements ExpenseService {
                 .toList();
     }
 
-    // ---------------- PRIVATE HELPERS ----------------
-
     private void validateUserId(String userId) {
         if (userId == null || userId.trim().isEmpty()) {
             throw new IllegalArgumentException("User ID cannot be null or empty");
