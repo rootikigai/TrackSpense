@@ -24,7 +24,16 @@ public class ExpenseController {
     private final ExpenseService expenseService;
 
     private String getLoggedInUserId() {
-        return (String) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        var auth = SecurityContextHolder.getContext().getAuthentication();
+        if (auth == null || !auth.isAuthenticated()) {
+            return null;
+        }
+        Object principal = auth.getPrincipal();
+        if (principal instanceof String) return (String) principal;
+        if (principal instanceof org.springframework.security.core.userdetails.UserDetails) {
+            return ((org.springframework.security.core.userdetails.UserDetails) principal).getUsername();
+        }
+        return principal.toString();
     }
 
     @PostMapping("/add")
