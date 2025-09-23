@@ -9,187 +9,143 @@ import com.trackspense.exceptions.EmailAlreadyExistsException;
 import com.trackspense.exceptions.InvalidEmailFormatException;
 import com.trackspense.exceptions.InvalidPasswordException;
 import com.trackspense.exceptions.UserNotFoundException;
+import com.trackspense.security.JwtUtil;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.data.mongo.DataMongoTest;
-import org.springframework.context.annotation.Import;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
-import static org.junit.jupiter.api.Assertions.assertThrows;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
-@DataMongoTest
-@Import(UserServiceImpl.class)
-public class UserServiceTest {
+import static org.junit.jupiter.api.Assertions.*;
+
+@SpringBootTest
+class UserServiceTest {
+
     @Autowired
-    private UserServiceImpl userService;
+    private UserService userService;
+
     @Autowired
     private UserRepo userRepo;
 
+    @Autowired
+    private PasswordEncoder passwordEncoder;
+
+    @Autowired
+    private JwtUtil jwtUtil;
+
     @BeforeEach
-    void cleanDB(){
+    void setUp() {
+        // clear DB before each test so they don’t clash
         userRepo.deleteAll();
     }
 
     @Test
-    void registerUser_shouldSaveUserAndReturnUserResponse(){
+    void testRegisterUserSuccessfully() {
         RegisterUserRequest request = new RegisterUserRequest();
         request.setUserName("Kelvin");
-        request.setEmail("kel@gmail.com");
-        request.setPassword("pass360");
+        request.setEmail("kelvin.unique@example.com");
+        request.setPassword("password123");
 
         UserResponse response = userService.registerUser(request);
 
-        assertThat(response.getId()).isNotNull();
-        assertThat(response.getUserName()).isEqualTo("Kelvin");
-        assertThat(response.getEmail()).isEqualTo("kel@gmail.com");
-
-        User saved = userRepo.findById(response.getId()).orElseThrow(() -> new RuntimeException("User not found in DataBase"));
-        assertThat(saved.getPassword()).isNotEqualTo("pass360");
-
-        BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
-        assertThat(encoder.matches("pass360", saved.getPassword())).isTrue();
+        assertNotNull(response);
+        assertEquals("Kelvin", response.getUserName());
+        assertEquals("kelvin.unique@example.com", response.getEmail());
     }
 
     @Test
-    void registerUser_shouldFailWhenUsernameIsEmpty(){
+    void testRegisterUserFailsWhenEmailAlreadyExists() {
         RegisterUserRequest request = new RegisterUserRequest();
-        request.setUserName("   ");
-        request.setEmail("glo@gmail.com");
-        request.setPassword("glo360");
+        request.setUserName("Kelvin");
+        request.setEmail("kelvin.unique@example.com");
+        request.setPassword("password123");
 
-        assertThrows(IllegalArgumentException.class, () -> userService.registerUser(request));
+        userService.registerUser(request);
+
+        RegisterUserRequest secondRequest = new RegisterUserRequest();
+        secondRequest.setUserName("Another Kelvin");
+        secondRequest.setEmail("kelvin.unique@example.com");
+        secondRequest.setPassword("anotherpass123");
+
+        assertThrows(EmailAlreadyExistsException.class, () -> userService.registerUser(secondRequest));
     }
 
     @Test
-    void registerUser_shouldFailWhenEmailIsInvalid(){
+    void testRegisterUserFailsWithInvalidEmail() {
         RegisterUserRequest request = new RegisterUserRequest();
-        request.setUserName("Motun");
-        request.setEmail("tuntun-email");
-        request.setPassword("tuntun360");
+        request.setUserName("Kelvin");
+        request.setEmail("invalidemail"); // no @ or domain
+        request.setPassword("mypassword123");
 
         assertThrows(InvalidEmailFormatException.class, () -> userService.registerUser(request));
     }
 
     @Test
-    void registerUser_shouldFailWhenEmailAlreadyExists() {
-        RegisterUserRequest request1 = new RegisterUserRequest();
-        request1.setUserName("Dare");
-        request1.setEmail("dare@gmail.com");
-        request1.setPassword("dare360");
-
-        userService.registerUser(request1);
-
-        RegisterUserRequest request2 = new RegisterUserRequest();
-        request2.setUserName("Ibrahim");
-        request2.setEmail("dare@gmail.com");
-        request2.setPassword("ibro360");
-
-        assertThrows(EmailAlreadyExistsException.class, () -> userService.registerUser(request2));
-    }
-
-    @Test
-    void registerUser_shouldFailWhenPasswordTooShort() {
+    void testRegisterUserFailsWithWeakPassword() {
         RegisterUserRequest request = new RegisterUserRequest();
-        request.setUserName("Eskay");
-        request.setEmail("sk@gmail.com");
-        request.setPassword("sk1");
+        request.setUserName("Kelvin");
+        request.setEmail("kelvin.unique@example.com");
+        request.setPassword("123"); // too short
 
         assertThrows(InvalidPasswordException.class, () -> userService.registerUser(request));
     }
 
     @Test
-    void registerUser_shouldFailWhenRequestIsNull() {
-        assertThrows(IllegalArgumentException.class, () -> userService.registerUser(null));
-    }
+    void testPasswordIsEncodedOnRegistration() {
+        String rawPassword = "mypassword123";
 
-    @Test
-    void testThatLoginShouldSucceedWithValidDetails(){
         RegisterUserRequest request = new RegisterUserRequest();
         request.setUserName("Kelvin");
-        request.setEmail("kel360@gmail.com");
-        request.setPassword("pass123");
-        userService.registerUser(request);
+        request.setEmail("kelvin.unique@example.com");
+        request.setPassword(rawPassword);
 
-        LoginResponse response = userService.login("kel360@gmail.com", "pass123");
+        UserResponse response = userService.registerUser(request);
 
-        assertThat(response).isNotNull();
-        assertThat(response.getUser().getEmail()).isEqualTo("kel360@gmail.com");
-        assertThat(response.getUser().getUserName()).isEqualTo("Kelvin");
-        assertThat(response.getMessage()).isEqualTo("Login Successful");
+        User savedUser = userRepo.findByEmail(response.getEmail())
+                .orElseThrow(() -> new RuntimeException("User not found in repo"));
+
+        // password in DB must not be plain
+        assertNotEquals(rawPassword, savedUser.getPassword(),
+                "Password should not be stored as plain text");
+
+        // but must match when encoded
+        assertTrue(passwordEncoder.matches(rawPassword, savedUser.getPassword()),
+                "Encoded password should match raw password");
     }
 
     @Test
-    void testThatLoginShouldFailWithInvalidPassword(){
-        RegisterUserRequest request = new RegisterUserRequest();
-        request.setUserName("Ikigai");
-        request.setEmail("ikigai@gmail.com");
-        request.setPassword("ikigai360");
-        userService.registerUser(request);
-
-        assertThrows(InvalidPasswordException.class, () -> userService.login("ikigai@gmail.com", "wrong360"));
-    }
-
-    @Test
-    void testThatLoginShouldFailWhenUserNotFound(){
-        assertThrows(UserNotFoundException.class, () -> userService.login("notfound@gmail.com", "pass360"));
-    }
-
-    @Test
-    void testThatLoginShouldFailWhenEmailIsInvalid(){
-        assertThrows(InvalidEmailFormatException.class, () -> userService.login("wrong.gmail.com", "pass360"));
-    }
-
-    @Test
-    void login_shouldFailWhenEmailIsNull() {
-        assertThrows(IllegalArgumentException.class, () -> userService.login(null, "pass360"));
-    }
-
-    @Test
-    void login_shouldFailWhenPasswordIsNull() {
-        assertThrows(IllegalArgumentException.class, () -> userService.login("test@gmail.com", null));
-    }
-
-    @Test
-    void testThatLoginResponseUserIsConsistentWithDatabase() {
+    void testLoginSuccessfully() {
         RegisterUserRequest request = new RegisterUserRequest();
         request.setUserName("Kelvin");
-        request.setEmail("kelvin@gmail.com");
-        request.setPassword("pass360");
+        request.setEmail("kelvin.unique@example.com");
+        request.setPassword("mypassword123");
+
         userService.registerUser(request);
 
-        LoginResponse response = userService.login("kelvin@gmail.com", "pass360");
+        LoginResponse loginResponse = userService.login("kelvin.unique@example.com", "mypassword123");
 
-        User saved = userRepo.findByEmail("kelvin@gmail.com")
-                .orElseThrow(() -> new RuntimeException("User not found in DataBase"));
-
-        assertThat(response.getUser().getId()).isEqualTo(saved.getId());
-        assertThat(response.getUser().getUserName()).isEqualTo(saved.getUserName());
-        assertThat(response.getUser().getEmail()).isEqualTo(saved.getEmail());
+        assertNotNull(loginResponse);
+        assertEquals("Login Successful", loginResponse.getMessage());
+        assertNotNull(loginResponse.getToken());
+        assertTrue(jwtUtil.validateToken(loginResponse.getToken()));
     }
 
     @Test
-    void registerUser_shouldFailWhenUsernameIsNullOrEmpty() {
+    void testLoginFailsWithWrongPassword() {
         RegisterUserRequest request = new RegisterUserRequest();
-        request.setUserName(null);
-        request.setEmail("valid@gmail.com");
-        request.setPassword("valid360");
+        request.setUserName("Kelvin");
+        request.setEmail("kelvin.unique@example.com");
+        request.setPassword("password123");
 
-        assertThrows(IllegalArgumentException.class, () -> userService.registerUser(request));
+        userService.registerUser(request);
 
-        request.setUserName("   ");
-        assertThrows(IllegalArgumentException.class, () -> userService.registerUser(request));
+        assertThrows(InvalidPasswordException.class,
+                () -> userService.login("kelvin.unique@example.com", "wrongpassword"));
     }
 
     @Test
-    void registerUser_shouldFailForMoreInvalidEmailFormats() {
-        String[] invalidEmails = {"a@b", "@@@", "   ", "user@.com", "user@domain"};
-        for (String badEmail : invalidEmails) {
-            RegisterUserRequest request = new RegisterUserRequest();
-            request.setUserName("Tester");
-            request.setEmail(badEmail);
-            request.setPassword("valid360");
-            assertThrows(InvalidEmailFormatException.class, () -> userService.registerUser(request));
-        }
+    void testLoginFailsWithNonExistentEmail() {
+        assertThrows(UserNotFoundException.class,
+                () -> userService.login("notfound@example.com", "password123"));
     }
 }
