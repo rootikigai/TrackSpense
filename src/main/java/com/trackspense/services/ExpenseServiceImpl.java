@@ -43,15 +43,15 @@ public class ExpenseServiceImpl implements ExpenseService {
                 .toList();
     }
 
-    @Override
-    public List<ExpenseResponse> getExpensesByUser(String userId) {
-        validateUserId(userId);
-
-        return expenseRepo.findByUserId(userId)
-                .stream()
-                .map(ExpenseMapper::toResponse)
-                .toList();
-    }
+//    @Override
+//    public List<ExpenseResponse> getExpensesByUser(String userId) {
+//        validateUserId(userId);
+//
+//        return expenseRepo.findByUserId(userId)
+//                .stream()
+//                .map(ExpenseMapper::toResponse)
+//                .toList();
+//    }
 
     @Override
     public ExpenseResponse updateExpense(String userId, String expenseId, UpdateExpenseRequest request) {
