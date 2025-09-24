@@ -17,7 +17,7 @@ public interface ExpenseService {
 
     List<ExpenseResponse> getAllExpenses(String userId);
 
-    List<ExpenseResponse> getExpensesByUser(String userId);
+//    List<ExpenseResponse> getExpensesByUser(String userId);
 
     List<ExpenseResponse> getExpensesByUserAndCategory(String userId, Category category);
 
