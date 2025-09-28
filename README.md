@@ -19,9 +19,7 @@ It allows multiple users to register, log in, and track their expenses across ca
 - Expenses stored in MongoDB and retrieved via REST APIs
 
 ### Frontend (In progress)
-- Simple HTML, CSS, JavaScript interface  
-- Responsive design for desktop & mobile  
-- Communicates with backend via REST APIs  
+- Refer to the front end repo 
 
 ### Development
 - Built with Test-Driven Development (TDD)  
@@ -34,7 +32,8 @@ It allows multiple users to register, log in, and track their expenses across ca
 - **Backend:** Java 21, Spring Boot 3.3.3  
 - **Database:** MongoDB  
 - **Build Tool:** Maven  
-- **Security:** BCrypt (password hashing)  
+- **Security:** BCrypt (password hashing)
+- **Authentication:** Web Token (JSON)  
 - **Testing:** JUnit, TDD  
 - **Frontend:** HTML, CSS, JavaScript  
 - **API Testing:** Postman
