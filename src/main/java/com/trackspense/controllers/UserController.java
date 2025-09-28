@@ -24,8 +24,12 @@ public class UserController {
     }
 
     @PostMapping("/login")
-    public ResponseEntity<LoginResponse> login(@RequestBody LoginRequest request) {
+    public ResponseEntity<java.util.Map<String, String>> login(@RequestBody LoginRequest request) {
         LoginResponse response = userService.login(request.getEmail(), request.getPassword());
-        return ResponseEntity.ok(response);
+        java.util.Map<String, String> payload = java.util.Map.of(
+                "token", response.getToken(),
+                "email", response.getUser().getEmail()
+        );
+        return ResponseEntity.ok(payload);
     }
 }
