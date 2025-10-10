@@ -104,11 +104,11 @@ class UserServiceTest {
         User savedUser = userRepo.findByEmail(response.getEmail())
                 .orElseThrow(() -> new RuntimeException("User not found in repo"));
 
-        // password in DB must not be plain
+        // I enforce that password in DB must not be plain
         assertNotEquals(rawPassword, savedUser.getPassword(),
                 "Password should not be stored as plain text");
 
-        // but must match when encoded
+        // but that password must match when encoded
         assertTrue(passwordEncoder.matches(rawPassword, savedUser.getPassword()),
                 "Encoded password should match raw password");
     }
