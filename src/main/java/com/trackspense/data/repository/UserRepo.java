@@ -1,6 +1,6 @@
-package com.trackspense.data.repos;
+package com.trackspense.data.repository;
 
-import com.trackspense.data.models.User;
+import com.trackspense.data.model.User;
 import org.springframework.data.mongodb.repository.MongoRepository;
 
 import java.util.Optional;

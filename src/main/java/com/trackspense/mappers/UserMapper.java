@@ -1,6 +1,6 @@
 package com.trackspense.mappers;
 
-import com.trackspense.data.models.User;
+import com.trackspense.data.model.User;
 import com.trackspense.dto.responses.UserResponse;
 
 public class UserMapper {

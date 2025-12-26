@@ -1,7 +1,7 @@
-package com.trackspense.data.repos;
+package com.trackspense.data.repository;
 
-import com.trackspense.data.models.Category;
-import com.trackspense.data.models.Expense;
+import com.trackspense.data.model.Category;
+import com.trackspense.data.model.Expense;
 import org.springframework.data.mongodb.repository.MongoRepository;
 
 import java.time.LocalDateTime;

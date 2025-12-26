@@ -1,4 +1,4 @@
-package com.trackspense.data.models;
+package com.trackspense.data.model;
 
 public enum Category {
     FOOD,

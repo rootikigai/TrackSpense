@@ -1,0 +1,725 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="d8b3277d-a864-492a-91b5-09ca617ac7b3" name="Changes" comment="Minor update">
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/trackspense/TrackSpenseApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trackspense/TrackSpenseApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/trackspense/controllers/ExpenseController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trackspense/controller/ExpenseController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/trackspense/controllers/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trackspense/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/trackspense/data/models/Category.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trackspense/data/model/Category.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/trackspense/data/models/Expense.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trackspense/data/model/Expense.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/trackspense/data/models/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trackspense/data/model/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/trackspense/data/repos/ExpenseRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trackspense/data/repository/ExpenseRepo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/trackspense/data/repos/UserRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trackspense/data/repository/UserRepo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/trackspense/dto/requests/CreateExpenseRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trackspense/dto/requests/CreateExpenseRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/trackspense/dto/requests/UpdateExpenseRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trackspense/dto/requests/UpdateExpenseRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/trackspense/mappers/ExpenseMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trackspense/mappers/ExpenseMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/trackspense/mappers/UserMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trackspense/mappers/UserMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/trackspense/services/ExpenseService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trackspense/service/ExpenseService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/trackspense/services/ExpenseServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trackspense/service/ExpenseServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/trackspense/services/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trackspense/service/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/trackspense/services/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trackspense/service/UserServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/trackspense/services/ExpenseServiceImplTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/trackspense/service/ExpenseServiceImplTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/trackspense/services/UserServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/trackspense/service/UserServiceTest.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ChangesViewManager">
+    <option name="groupingKeys">
+      <option value="directory" />
+      <option value="repository" />
+    </option>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Enum" />
+        <option value="Exception" />
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;rootikigai&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;git@github.com:rootikigai/TrackSpense_Backend.git&quot;,
+    &quot;accountId&quot;: &quot;51524c56-69a2-4d4e-85c4-8e4958803a86&quot;
+  }
+}</component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 1
+}</component>
+  <component name="ProjectId" id="32eNUzTGkzlvNArTdcIMxvSCqTR" />
+  <component name="ProjectViewState">
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.TrackSpenseApp.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ExpenseServiceImplTest.executor&quot;: &quot;Coverage&quot;,
+    &quot;JUnit.ExpenseServiceTest.addExpense_shouldFailWhenAmountIsInvalid.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ExpenseServiceTest.addExpense_shouldFailWhenDescriptionIsNullOrEmpty.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ExpenseServiceTest.addExpense_shouldFailWhenUserIdIsNullOrEmpty.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ExpenseServiceTest.deleteExpense_shouldFailWhenExpenseNotFound.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ExpenseServiceTest.deleteExpense_shouldRemoveExpense.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ExpenseServiceTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ExpenseServiceTest.testAddExpense.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ExpenseServiceTest.testThatUserCanAddExpense.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ExpenseServiceTest.updateExpense_shouldUpdateFieldsCorrectly.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.UserServiceTest.executor&quot;: &quot;Coverage&quot;,
+    &quot;JUnit.UserServiceTest.login_shouldFailWhenEmailIsNull.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.UserServiceTest.login_shouldFailWhenPasswordIsNull.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.UserServiceTest.registerUser_shouldFailForMoreInvalidEmailFormats.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.UserServiceTest.registerUser_shouldFailWhenEmailAlreadyExists.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.UserServiceTest.registerUser_shouldFailWhenEmailIsInvalid.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.UserServiceTest.registerUser_shouldFailWhenPasswordTooShort.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.UserServiceTest.registerUser_shouldFailWhenRequestIsNull.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.UserServiceTest.registerUser_shouldFailWhenUsernameIsEmpty.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.UserServiceTest.registerUser_shouldFailWhenUsernameIsNullOrEmpty.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.UserServiceTest.registerUser_shouldSaveUserAndReturnUserResponse.executor&quot;: &quot;Debug&quot;,
+    &quot;JUnit.UserServiceTest.testThatLoginResponseUserIsConsistentWithDatabase.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.UserServiceTest.testThatLoginShouldFailWhenEmailIsInvalid.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.UserServiceTest.testThatLoginShouldFailWhenUserNotFound.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.UserServiceTest.testThatLoginShouldFailWithInvalidPassword.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.UserServiceTest.testThatLoginShouldSucceedWithValidDetails.executor&quot;: &quot;Run&quot;,
+    &quot;Maven.Junie Maven test: com.trackspense.services.ExpenseServiceImplTest.executor&quot;: &quot;Run&quot;,
+    &quot;Maven.Junie Maven test: com.trackspense.services.UserServiceTest.executor&quot;: &quot;Run&quot;,
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;Spring Boot.TrackSpenseApp.executor&quot;: &quot;Run&quot;,
+    &quot;Spring Boot.TrackSpenseApplication.executor&quot;: &quot;Run&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/r00tikigai/Desktop/FileReaderTutorial&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;to.speed.mode.migration.done&quot;: &quot;true&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RunManager" selected="Spring Boot.TrackSpenseApplication">
+    <configuration name="ExpenseServiceImplTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="TrackSpense" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.trackspense.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.trackspense.services" />
+      <option name="MAIN_CLASS_NAME" value="com.trackspense.service.ExpenseServiceImplTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ExpenseServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="TrackSpense" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.trackspense.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.trackspense.services" />
+      <option name="MAIN_CLASS_NAME" value="com.trackspense.services.ExpenseServiceTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UserServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="TrackSpense" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.trackspense.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.trackspense.services" />
+      <option name="MAIN_CLASS_NAME" value="com.trackspense.service.UserServiceTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UserServiceTest.registerUser_shouldFailWhenPasswordTooShort" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="TrackSpense" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.trackspense.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.trackspense.services" />
+      <option name="MAIN_CLASS_NAME" value="com.trackspense.service.UserServiceTest" />
+      <option name="METHOD_NAME" value="registerUser_shouldFailWhenPasswordTooShort" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UserServiceTest.registerUser_shouldSaveUserAndReturnUserResponse" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="TrackSpense" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.trackspense.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.trackspense.services" />
+      <option name="MAIN_CLASS_NAME" value="com.trackspense.service.UserServiceTest" />
+      <option name="METHOD_NAME" value="registerUser_shouldSaveUserAndReturnUserResponse" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TrackSpenseApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="TrackSpense" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.trackspense.TrackSpenseApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.UserServiceTest" />
+        <item itemvalue="JUnit.ExpenseServiceImplTest" />
+        <item itemvalue="JUnit.UserServiceTest.registerUser_shouldFailWhenPasswordTooShort" />
+        <item itemvalue="JUnit.UserServiceTest.registerUser_shouldSaveUserAndReturnUserResponse" />
+        <item itemvalue="JUnit.ExpenseServiceTest" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9823dce3aa75-bf35d07a577b-intellij.indexing.shared.core-IU-252.28238.7" />
+        <option value="bundled-js-predefined-d6986cc7102b-a71380e98a7c-JavaScript-IU-252.28238.7" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="StructureViewState">
+    <option name="selectedTab" value="Logical" />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="d8b3277d-a864-492a-91b5-09ca617ac7b3" name="Changes" comment="" />
+      <created>1757777109080</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1757777109080</updated>
+      <workItem from="1757777120922" duration="5349000" />
+      <workItem from="1757803080518" duration="227969000" />
+      <workItem from="1758456055472" duration="72038000" />
+      <workItem from="1758616707445" duration="68661000" />
+      <workItem from="1758877331264" duration="4101000" />
+      <workItem from="1758898915467" duration="41457000" />
+      <workItem from="1759072921855" duration="4980000" />
+      <workItem from="1759148398273" duration="1382000" />
+      <workItem from="1759168636922" duration="3494000" />
+      <workItem from="1759172274549" duration="4214000" />
+      <workItem from="1759241050962" duration="5053000" />
+      <workItem from="1759412659722" duration="54921000" />
+      <workItem from="1759827851079" duration="18078000" />
+      <workItem from="1759978887073" duration="11922000" />
+      <workItem from="1760103416768" duration="14556000" />
+      <workItem from="1760309180074" duration="37000" />
+      <workItem from="1760356575882" duration="4161000" />
+      <workItem from="1760607185283" duration="11663000" />
+      <workItem from="1760710751121" duration="5968000" />
+      <workItem from="1760882609311" duration="427000" />
+      <workItem from="1760963744460" duration="2157000" />
+      <workItem from="1761559223370" duration="64000" />
+      <workItem from="1761559727325" duration="117000" />
+      <workItem from="1762504519003" duration="16161000" />
+      <workItem from="1764188822673" duration="626000" />
+      <workItem from="1764762013191" duration="2384000" />
+      <workItem from="1765805241438" duration="13427000" />
+      <workItem from="1766079962404" duration="1208000" />
+      <workItem from="1766418304328" duration="17136000" />
+    </task>
+    <task id="LOCAL-00023" summary="Added UserService interface for loose coupling">
+      <option name="closed" value="true" />
+      <created>1758322124368</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1758322124368</updated>
+    </task>
+    <task id="LOCAL-00024" summary="Implemented UserServiceImpl with validations">
+      <option name="closed" value="true" />
+      <created>1758322156744</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1758322156744</updated>
+    </task>
+    <task id="LOCAL-00025" summary="Added UserServiceTest for TDD on registerUserFlow">
+      <option name="closed" value="true" />
+      <created>1758322212218</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1758322212218</updated>
+    </task>
+    <task id="LOCAL-00026" summary="pom.xml file of dependencies and the TrackSpense project build.">
+      <option name="closed" value="true" />
+      <created>1758322323181</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1758322323181</updated>
+    </task>
+    <task id="LOCAL-00027" summary="Added more tests for edge cases">
+      <option name="closed" value="true" />
+      <created>1758408281253</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1758408281253</updated>
+    </task>
+    <task id="LOCAL-00028" summary="Tightened email regex validation for User registration and login.&#10;Improved null/empty checks for email and password login flow.">
+      <option name="closed" value="true" />
+      <created>1758408624961</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1758408624961</updated>
+    </task>
+    <task id="LOCAL-00029" summary="Added centralized API error handling">
+      <option name="closed" value="true" />
+      <created>1758408699085</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1758408699085</updated>
+    </task>
+    <task id="LOCAL-00030" summary="Refactored expense entity to track expense properly.">
+      <option name="closed" value="true" />
+      <created>1758408780186</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1758408780186</updated>
+    </task>
+    <task id="LOCAL-00031" summary="Refactored DTOs requests and responses">
+      <option name="closed" value="true" />
+      <created>1758408872629</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1758408872629</updated>
+    </task>
+    <task id="LOCAL-00032" summary="Refactored to convert between Expense entity and DTOs">
+      <option name="closed" value="true" />
+      <created>1758408916228</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1758408916228</updated>
+    </task>
+    <task id="LOCAL-00033" summary="Renamed from ExpenseService to ExpenseServiceImpl for loose coupling.">
+      <option name="closed" value="true" />
+      <created>1758408982467</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1758408982467</updated>
+    </task>
+    <task id="LOCAL-00034" summary="Added UserService Interface">
+      <option name="closed" value="true" />
+      <created>1758409004779</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1758409004779</updated>
+    </task>
+    <task id="LOCAL-00035" summary="Refactored UserController for proper endpoints">
+      <option name="closed" value="true" />
+      <created>1758409114384</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1758409114384</updated>
+    </task>
+    <task id="LOCAL-00036" summary="Added dependencies for JWT Authentication">
+      <option name="closed" value="true" />
+      <created>1758493514886</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1758493514886</updated>
+    </task>
+    <task id="LOCAL-00037" summary="updated to include userId in expense addition endpoint">
+      <option name="closed" value="true" />
+      <created>1758493599623</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1758493599623</updated>
+    </task>
+    <task id="LOCAL-00038" summary="Added validation for params&#10;Threw illegal arguments for invalid inputs">
+      <option name="closed" value="true" />
+      <created>1758493779070</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1758493779070</updated>
+    </task>
+    <task id="LOCAL-00039" summary="Implemented expense mapper for DTO to Entity and Entity to Response conversion">
+      <option name="closed" value="true" />
+      <created>1758493855882</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1758493855882</updated>
+    </task>
+    <task id="LOCAL-00040" summary="Refactored to support mapping">
+      <option name="closed" value="true" />
+      <created>1758493958790</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1758493958790</updated>
+    </task>
+    <task id="LOCAL-00041" summary="Temporarily paused (comment out) find by user with date and/or category">
+      <option name="closed" value="true" />
+      <created>1758494051714</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1758494051714</updated>
+    </task>
+    <task id="LOCAL-00042" summary="Refactored endpoints and added getExpensesByUserAndDateRange and getAllCategories">
+      <option name="closed" value="true" />
+      <created>1758566869838</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1758566869838</updated>
+    </task>
+    <task id="LOCAL-00043" summary="unpaused find by user with date and/or category">
+      <option name="closed" value="true" />
+      <created>1758566943265</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1758566943265</updated>
+    </task>
+    <task id="LOCAL-00044" summary="Refactored Category Enum from String">
+      <option name="closed" value="true" />
+      <created>1758567019778</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1758567019778</updated>
+    </task>
+    <task id="LOCAL-00045" summary="Refactored Category Enum from String">
+      <option name="closed" value="true" />
+      <created>1758567028933</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1758567028933</updated>
+    </task>
+    <task id="LOCAL-00046" summary="Added String Token for JWT Authentication">
+      <option name="closed" value="true" />
+      <created>1758567075553</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1758567075553</updated>
+    </task>
+    <task id="LOCAL-00047" summary="Updated to include JWT Auth Exception">
+      <option name="closed" value="true" />
+      <created>1758567118699</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1758567118699</updated>
+    </task>
+    <task id="LOCAL-00048" summary="Refactored Category from String to Enum for consistency">
+      <option name="closed" value="true" />
+      <created>1758567155284</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1758567155284</updated>
+    </task>
+    <task id="LOCAL-00049" summary="Added ExpenseService interface">
+      <option name="closed" value="true" />
+      <created>1758567562042</created>
+      <option name="number" value="00049" />
+      <option name="presentableId" value="LOCAL-00049" />
+      <option name="project" value="LOCAL" />
+      <updated>1758567562042</updated>
+    </task>
+    <task id="LOCAL-00050" summary="Added JWT Utility, filter and Security config files for Authentication">
+      <option name="closed" value="true" />
+      <created>1758567608695</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL-00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1758567608697</updated>
+    </task>
+    <task id="LOCAL-00051" summary="refactored to remove redundant codes">
+      <option name="closed" value="true" />
+      <created>1758567649150</created>
+      <option name="number" value="00051" />
+      <option name="presentableId" value="LOCAL-00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1758567649151</updated>
+    </task>
+    <task id="LOCAL-00052" summary="Unit tests for Expenses">
+      <option name="closed" value="true" />
+      <created>1758567716607</created>
+      <option name="number" value="00052" />
+      <option name="presentableId" value="LOCAL-00052" />
+      <option name="project" value="LOCAL" />
+      <updated>1758567716607</updated>
+    </task>
+    <task id="LOCAL-00053" summary="Refactored getLoggedInUserId method">
+      <option name="closed" value="true" />
+      <created>1758665810139</created>
+      <option name="number" value="00053" />
+      <option name="presentableId" value="LOCAL-00053" />
+      <option name="project" value="LOCAL" />
+      <updated>1758665810140</updated>
+    </task>
+    <task id="LOCAL-00054" summary="Tightened security with more robust authentications">
+      <option name="closed" value="true" />
+      <created>1758665962444</created>
+      <option name="number" value="00054" />
+      <option name="presentableId" value="LOCAL-00054" />
+      <option name="project" value="LOCAL" />
+      <updated>1758665962445</updated>
+    </task>
+    <task id="LOCAL-00055" summary="Cleared comment used to keep track">
+      <option name="closed" value="true" />
+      <created>1758666041320</created>
+      <option name="number" value="00055" />
+      <option name="presentableId" value="LOCAL-00055" />
+      <option name="project" value="LOCAL" />
+      <updated>1758666041320</updated>
+    </task>
+    <task id="LOCAL-00056" summary="Reconfigured UserServiceTest to use separate test profile and DB&#10;Autowired password encoder and JwtUtil">
+      <option name="closed" value="true" />
+      <created>1758667048235</created>
+      <option name="number" value="00056" />
+      <option name="presentableId" value="LOCAL-00056" />
+      <option name="project" value="LOCAL" />
+      <updated>1758667048235</updated>
+    </task>
+    <task id="LOCAL-00057" summary="Refactored">
+      <option name="closed" value="true" />
+      <created>1758738660476</created>
+      <option name="number" value="00057" />
+      <option name="presentableId" value="LOCAL-00057" />
+      <option name="project" value="LOCAL" />
+      <updated>1758738660476</updated>
+    </task>
+    <task id="LOCAL-00058" summary="Comment out a line of code not in use at the moment">
+      <option name="closed" value="true" />
+      <created>1758738693279</created>
+      <option name="number" value="00058" />
+      <option name="presentableId" value="LOCAL-00058" />
+      <option name="project" value="LOCAL" />
+      <updated>1758738693279</updated>
+    </task>
+    <task id="LOCAL-00059" summary="Comment out a block of code that relates to the line of code not in use at the moment">
+      <option name="closed" value="true" />
+      <created>1758738724874</created>
+      <option name="number" value="00059" />
+      <option name="presentableId" value="LOCAL-00059" />
+      <option name="project" value="LOCAL" />
+      <updated>1758738724875</updated>
+    </task>
+    <task id="LOCAL-00060" summary="My cors config file to handle Cross Origin Resource Sharing on web">
+      <option name="closed" value="true" />
+      <created>1758838754974</created>
+      <option name="number" value="00060" />
+      <option name="presentableId" value="LOCAL-00060" />
+      <option name="project" value="LOCAL" />
+      <updated>1758838754974</updated>
+    </task>
+    <task id="LOCAL-00061" summary="Refactored cors config file allowedOrigins">
+      <option name="closed" value="true" />
+      <created>1759073532777</created>
+      <option name="number" value="00061" />
+      <option name="presentableId" value="LOCAL-00061" />
+      <option name="project" value="LOCAL" />
+      <updated>1759073532777</updated>
+    </task>
+    <task id="LOCAL-00062" summary="Refactored to include JWT Auth in the response">
+      <option name="closed" value="true" />
+      <created>1759077028986</created>
+      <option name="number" value="00062" />
+      <option name="presentableId" value="LOCAL-00062" />
+      <option name="project" value="LOCAL" />
+      <updated>1759077028986</updated>
+    </task>
+    <task id="LOCAL-00063" summary="Refactored to add request matchers and /health to confirm apis hit targets.">
+      <option name="closed" value="true" />
+      <created>1759077133355</created>
+      <option name="number" value="00063" />
+      <option name="presentableId" value="LOCAL-00063" />
+      <option name="project" value="LOCAL" />
+      <updated>1759077133356</updated>
+    </task>
+    <task id="LOCAL-00064" summary="Refactored">
+      <option name="closed" value="true" />
+      <created>1759077161476</created>
+      <option name="number" value="00064" />
+      <option name="presentableId" value="LOCAL-00064" />
+      <option name="project" value="LOCAL" />
+      <updated>1759077161476</updated>
+    </task>
+    <task id="LOCAL-00065" summary="Health controller added to test if apis hit targets on the console.">
+      <option name="closed" value="true" />
+      <created>1759077217645</created>
+      <option name="number" value="00065" />
+      <option name="presentableId" value="LOCAL-00065" />
+      <option name="project" value="LOCAL" />
+      <updated>1759077217645</updated>
+    </task>
+    <task id="LOCAL-00066" summary="Health controller no longer needed...for now!">
+      <option name="closed" value="true" />
+      <created>1759531145247</created>
+      <option name="number" value="00066" />
+      <option name="presentableId" value="LOCAL-00066" />
+      <option name="project" value="LOCAL" />
+      <updated>1759531145248</updated>
+    </task>
+    <task id="LOCAL-00067" summary="Refactored UserResponse">
+      <option name="closed" value="true" />
+      <created>1760130671574</created>
+      <option name="number" value="00067" />
+      <option name="presentableId" value="LOCAL-00067" />
+      <option name="project" value="LOCAL" />
+      <updated>1760130671575</updated>
+    </task>
+    <task id="LOCAL-00068" summary="Added Jackson serialization in application properties">
+      <option name="closed" value="true" />
+      <created>1760130731038</created>
+      <option name="number" value="00068" />
+      <option name="presentableId" value="LOCAL-00068" />
+      <option name="project" value="LOCAL" />
+      <updated>1760130731038</updated>
+    </task>
+    <task id="LOCAL-00069" summary="Refactored">
+      <option name="closed" value="true" />
+      <created>1760130773064</created>
+      <option name="number" value="00069" />
+      <option name="presentableId" value="LOCAL-00069" />
+      <option name="project" value="LOCAL" />
+      <updated>1760130773064</updated>
+    </task>
+    <task id="LOCAL-00070" summary="Minor update">
+      <option name="closed" value="true" />
+      <created>1764799998846</created>
+      <option name="number" value="00070" />
+      <option name="presentableId" value="LOCAL-00070" />
+      <option name="project" value="LOCAL" />
+      <updated>1764799998846</updated>
+    </task>
+    <task id="LOCAL-00071" summary="Minor update">
+      <option name="closed" value="true" />
+      <created>1764800153796</created>
+      <option name="number" value="00071" />
+      <option name="presentableId" value="LOCAL-00071" />
+      <option name="project" value="LOCAL" />
+      <updated>1764800153797</updated>
+    </task>
+    <option name="localTasksCounter" value="72" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="unpaused find by user with date and/or category" />
+    <MESSAGE value="Refactored Category Enum from String" />
+    <MESSAGE value="Added String Token for JWT Authentication" />
+    <MESSAGE value="Updated to include JWT Auth Exception" />
+    <MESSAGE value="Refactored Category from String to Enum for consistency" />
+    <MESSAGE value="Added ExpenseService interface" />
+    <MESSAGE value="Added JWT Utility, filter and Security config files for Authentication" />
+    <MESSAGE value="refactored to remove redundant codes" />
+    <MESSAGE value="Unit tests for Expenses" />
+    <MESSAGE value="Refactored getLoggedInUserId method" />
+    <MESSAGE value="Tightened security with more robust authentications" />
+    <MESSAGE value="Cleared comment used to keep track" />
+    <MESSAGE value="Reconfigured UserServiceTest to use separate test profile and DB&#10;Autowired password encoder and JwtUtil" />
+    <MESSAGE value="Comment out a line of code not in use at the moment" />
+    <MESSAGE value="Comment out a block of code that relates to the line of code not in use at the moment" />
+    <MESSAGE value="My cors config file to handle Cross Origin Resource Sharing on web" />
+    <MESSAGE value="Refactored cors config file allowedOrigins" />
+    <MESSAGE value="Refactored to include JWT Auth in the response" />
+    <MESSAGE value="Refactored to add request matchers and /health to confirm apis hit targets." />
+    <MESSAGE value="Health controller added to test if apis hit targets on the console." />
+    <MESSAGE value="Health controller no longer needed...for now!" />
+    <MESSAGE value="Refactored UserResponse" />
+    <MESSAGE value="Added Jackson serialization in application properties" />
+    <MESSAGE value="Refactored" />
+    <MESSAGE value="Minor update" />
+    <option name="LAST_COMMIT_MESSAGE" value="Minor update" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/TrackSpense$UserServiceTest.ic" NAME="UserServiceTest Coverage Results" MODIFIED="1758361098925" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
+      <FILTER>com.trackspense.services.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/TrackSpense$ExpenseServiceTest_testThatUserCanAddExpense.ic" NAME="ExpenseServiceTest.testThatUserCanAddExpense Coverage Results" MODIFIED="1758226272741" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
+      <FILTER>com.trackspense.services.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/TrackSpense$ExpenseServiceTest.ic" NAME="ExpenseServiceTest Coverage Results" MODIFIED="1758445436239" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
+      <FILTER>com.trackspense.services.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/TrackSpense_Backend$UserServiceTest.ic" NAME="UserServiceTest Coverage Results" MODIFIED="1759488134110" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
+      <FILTER>com.trackspense.services.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/TrackSpense$ExpenseServiceImplTest.ic" NAME="ExpenseServiceImplTest Coverage Results" MODIFIED="1758659544628" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
+      <FILTER>com.trackspense.services.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/TrackSpense_Backend$ExpenseServiceImplTest.ic" NAME="ExpenseServiceImplTest Coverage Results" MODIFIED="1759488023445" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
+      <FILTER>com.trackspense.services.*</FILTER>
+    </SUITE>
+  </component>
+</project>

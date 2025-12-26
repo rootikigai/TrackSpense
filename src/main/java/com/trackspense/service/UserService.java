@@ -1,4 +1,4 @@
-package com.trackspense.services;
+package com.trackspense.service;
 
 import com.trackspense.dto.requests.RegisterUserRequest;
 import com.trackspense.dto.responses.LoginResponse;

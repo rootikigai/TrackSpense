@@ -1,4 +1,4 @@
-package com.trackspense.data.models;
+package com.trackspense.data.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

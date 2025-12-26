@@ -1,7 +1,7 @@
-package com.trackspense.services;
+package com.trackspense.service;
 
-import com.trackspense.data.models.User;
-import com.trackspense.data.repos.UserRepo;
+import com.trackspense.data.model.User;
+import com.trackspense.data.repository.UserRepo;
 import com.trackspense.dto.requests.RegisterUserRequest;
 import com.trackspense.dto.responses.LoginResponse;
 import com.trackspense.dto.responses.UserResponse;

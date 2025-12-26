@@ -1,6 +1,6 @@
 package com.trackspense.mappers;
 
-import com.trackspense.data.models.Expense;
+import com.trackspense.data.model.Expense;
 import com.trackspense.dto.requests.CreateExpenseRequest;
 import com.trackspense.dto.requests.UpdateExpenseRequest;
 import com.trackspense.dto.responses.ExpenseResponse;

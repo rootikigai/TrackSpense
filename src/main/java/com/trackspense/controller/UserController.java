@@ -1,10 +1,10 @@
-package com.trackspense.controllers;
+package com.trackspense.controller;
 
 import com.trackspense.dto.requests.LoginRequest;
 import com.trackspense.dto.requests.RegisterUserRequest;
 import com.trackspense.dto.responses.LoginResponse;
 import com.trackspense.dto.responses.UserResponse;
-import com.trackspense.services.UserService;
+import com.trackspense.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

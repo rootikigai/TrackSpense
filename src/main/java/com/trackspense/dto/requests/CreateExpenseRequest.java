@@ -1,6 +1,6 @@
 package com.trackspense.dto.requests;
 
-import com.trackspense.data.models.Category;
+import com.trackspense.data.model.Category;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;

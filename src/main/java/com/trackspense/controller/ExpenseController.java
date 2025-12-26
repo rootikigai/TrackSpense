@@ -1,10 +1,10 @@
-package com.trackspense.controllers;
+package com.trackspense.controller;
 
-import com.trackspense.data.models.Category;
+import com.trackspense.data.model.Category;
 import com.trackspense.dto.requests.CreateExpenseRequest;
 import com.trackspense.dto.requests.UpdateExpenseRequest;
 import com.trackspense.dto.responses.ExpenseResponse;
-import com.trackspense.services.ExpenseService;
+import com.trackspense.service.ExpenseService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.format.annotation.DateTimeFormat;

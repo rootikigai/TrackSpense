@@ -1,8 +1,8 @@
-package com.trackspense.services;
+package com.trackspense.service;
 
-import com.trackspense.data.models.Category;
-import com.trackspense.data.models.Expense;
-import com.trackspense.data.repos.ExpenseRepo;
+import com.trackspense.data.model.Category;
+import com.trackspense.data.model.Expense;
+import com.trackspense.data.repository.ExpenseRepo;
 import com.trackspense.dto.requests.CreateExpenseRequest;
 import com.trackspense.dto.requests.UpdateExpenseRequest;
 import com.trackspense.dto.responses.ExpenseResponse;
